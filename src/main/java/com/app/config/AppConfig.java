@@ -31,6 +31,10 @@ public class AppConfig {
 	public MessageListenerContainer ms() {
 		DefaultMessageListenerContainer dm=new DefaultMessageListenerContainer();
 		dm.setDestinationName("my-qu1");
+		
+		/* If you want access broadcast message then setPubSubDomain(true) and use Destination as Topic instead of Queue*/
+		//dm.setPubSubDomain(true);
+		//dm.setDestinationName("my-tpq1");
 		dm.setConnectionFactory(cf());
 		dm.setMessageListener(messageListener);
 		
